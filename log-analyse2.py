@@ -8,7 +8,8 @@ import ipaddress
 import csv
 #import matplotlib.pyplot as plt
 st. set_page_config(layout="wide",page_title="Log Analyser", page_icon="🪵")
-
+st.caption("")
+st.title("Log Analyser 🪵")
 def checkIPs(ip):  # gets the data for a single IP address
     submissionURL = 'http://ip-api.com/json/' + str(ip) + '?fields=status,message,countryCode,isp,org,as,mobile,proxy,hosting,query'
     r = json.loads(str(requests.post(submissionURL).text))
