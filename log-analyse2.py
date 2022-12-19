@@ -90,7 +90,7 @@ if uploaded_file is not None:
 
 
     # Add a function to download the filtered logs as a CSV file
-    def download_csv():
+    def download_google_csv():
         # Get the lines of the DataFrame where "Googlebot Confirmed" is "Y"
         filtered_logs = logs_df.loc[logs_df["Googlebot Confirmed"] == "Y"]
 
@@ -103,11 +103,26 @@ if uploaded_file is not None:
             mime='text/csv',
         )
 
+    def download_csv():
+        # Get the lines of the DataFrame where "Googlebot Confirmed" is "Y"
+        csvLogs = logs_df
+        csvLogs = csvLogs.to_csv().encode('utf-8')
+
+        st.download_button(
+            label="Download data as CSV",
+            data=csvLogs,
+            file_name='raw_logs.csv',
+            mime='text/csv',
+        )
+
+
+    st.subheader("Download Raw Logs as a CSV")
+    download_csv()
 
     # Add a button to download the filtered logs as a CSV file
     if not filtered_logs.empty:
         st.subheader("Download Googlebot Log Entries")
-        download_csv()
+        download_google_csv()
 
     # Get a list of the IP addresses sorted by the number of times they appear in the logs_df DataFrame
     ip_counts = logs_df["remote_addr"].value_counts()
