@@ -6,7 +6,7 @@ import requests
 import json
 import ipaddress
 import csv
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 def checkIPs(ip):  # gets the data for a single IP address
     submissionURL = 'http://ip-api.com/json/' + str(ip) + '?fields=status,message,countryCode,isp,org,as,mobile,proxy,hosting,query'
@@ -157,15 +157,15 @@ if uploaded_file is not None:
     st.subheader("Top 10 Most Frequent User Agents")
     st.write(top_user_agents)
 
-    # Convert the timestamp column to datetime objects
-    logs_df['time_local'] = pd.to_datetime(logs_df['time_local'], format='%d/%b/%Y:%H:%M:%S +0000')
-    log_counts = logs_df['time_local'].value_counts()
-
-    log_counts.plot(kind='line')
-
-    # Plot the chart using matplotlib and display it in Streamlit
-    plt.tight_layout()
-    st.pyplot()
+    # # Convert the timestamp column to datetime objects
+    # logs_df['time_local'] = pd.to_datetime(logs_df['time_local'], format='%d/%b/%Y:%H:%M:%S +0000')
+    # log_counts = logs_df['time_local'].value_counts()
+    #
+    # log_counts.plot(kind='line')
+    #
+    # # Plot the chart using matplotlib and display it in Streamlit
+    # plt.tight_layout()
+    # st.pyplot()
 
 
 
