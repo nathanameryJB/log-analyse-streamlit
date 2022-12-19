@@ -23,7 +23,7 @@ def logLineToDict(line):
     return m.groupdict()
 
 
-
+st.write("Once you've uploaded a log file, the app will check for Googlebot by matching against the official Google IP ranges. It will also let you download just the Googlebot hits (currently all types of Googlebot, including Ads right now) Also shows a summary of most crawled pages, highest frequency IP addresses. It uses http://ip-api.com to check the hosting and country data of the top 10 ips in the list.")
 
 
 
